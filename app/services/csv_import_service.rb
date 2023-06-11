@@ -1,21 +1,19 @@
 class CsvImportService
   require 'csv'
 
-  def call(file)
-    begin
-      opened_file = File.open(file)
-      options = { headers: true, col_sep: ';' }
-      CSV.foreach(opened_file, **options) do |row|
-        product_hash = {}
-        product_hash[:name] = row[:Name]
-        product_hash[:description] = row[:Description]
-        product_hash[:quantity] = row[:Quantity]
-        product_hash[:price] = row[:Price]
-        byebug
-        Product.create(product_hash)
-      end
-    rescue CSV::MalformedCSVError => e 
-      e.message
+  def initialize(file)
+    @file = file
+  end
+
+  def call
+    CSV.foreach(@file.path, headers: true) do |row|
+      product_hash = {}
+      product_hash[:id] = row['ID']
+      product_hash[:name] = row['Name']
+      product_hash[:description] = row["Description"]
+      product_hash[:quantity] = row['Quantity']
+      product_hash[:price] = row['Price']
+      Product.create!(product_hash)
     end
   end
 end

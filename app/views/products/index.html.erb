@@ -1,22 +1,22 @@
-<% @products.each do |product| %>
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Quanity</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= product.name %></td>
-      <td><%= product.description %></td>
-      <td><%= product.quantity %></td>
-      <td><%= product.price %></td>
-    </tr>
-    <tr>
-  </tbody>
-</table>
+<%= render partial: 'import' %>
+<%= link_to "HOME", root_path%>
+<br/>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :price_gteq %>
+  <%= f.search_field :price_gteq, type: :number %>
+
+  <%= f.label :price_lteq %>
+  <%= f.search_field :price_lteq, type: :number %>
+
+
+  <%= f.submit %>
 <% end %>
+
+
+<%= render partial:'product_table', products: @products %>
+
+<%= will_paginate @products, class: "text-center mt-5" %>
