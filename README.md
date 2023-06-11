@@ -31,6 +31,10 @@ after that feel free to run the server
   rails s
 ```
 
+```bash
+ You can find test csv file in spec/fixtures/files directory. Note: this logic uses product details to import csv file. if you want to use your own csv file make sure to have headers: ID:int/bigint, Name:string, Description:text, Quantity:int, Price:float
+```
+
 
 ## Authors
 
