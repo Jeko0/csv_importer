@@ -14,7 +14,13 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'dotenv-rails'
+gem 'devise'
+gem 'bootstrap', '~> 5.1.3'
+gem 'will_paginate'
+gem 'ransack'
+
 group :development, :test do
+  gem 'byebug', '~> 11.1', '>= 11.1.3'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 

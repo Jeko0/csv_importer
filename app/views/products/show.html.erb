@@ -1,0 +1,22 @@
+<h1>PRODUCT DETAILS </h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @product.name %></td>
+      <td><%= @product.description %></td>
+      <td><%= @product.quantity %></td>
+      <td><%= @product.price %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "back to products", products_path %>
